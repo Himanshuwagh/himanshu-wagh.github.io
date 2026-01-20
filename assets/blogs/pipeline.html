@@ -1,147 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>The Complete Guide to Training Large Language Models: A Three-Stage Pipeline</title>
-  <meta name="description" content="A comprehensive, beginner-friendly guide to training large language models through pretraining, midtraining, and fine-tuning stages.">
+  <meta name="description"
+    content="A comprehensive, beginner-friendly guide to training large language models through pretraining, midtraining, and fine-tuning stages.">
 
   <link rel="stylesheet" href="../main.css">
   <title>The Complete Guide to Training Large Language Models: A Three-Stage Pipeline | Himanshu Wagh</title>
 
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <header class="site-header" role="banner">
-  <div class="wrapper">
-    <a class="site-title" href="https://himanshuwagh.github.io/index.html" style="font-size:30px;font-family: fantasy-copperplate;">Himanshu Wagh</a>
+  <header class="site-header" role="banner">
+    <div class="wrapper">
+      <a class="site-title" href="https://himanshuwagh.github.io/index.html"
+        style="font-size:30px;font-family: fantasy-copperplate;">Himanshu Wagh</a>
       <nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
         <label for="nav-trigger">
           <span class="menu-icon">
             <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
-              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
-              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+              <path fill="#424242"
+                d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" />
+              <path fill="#424242"
+                d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" />
+              <path fill="#424242"
+                d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" />
             </svg>
           </span>
         </label>
-        <div class="trigger">
-          <a class="page-link" href="../projects/projects.html">Projects</a>
-          <a class="page-link" href="../books/books.html">Blogs</a>
-          <a class="page-link" href="../list-100/list-100.html">List 100</a>
-          <a class="page-link" href="../travel/travel.html">Travel</a>
-        </div>
-      </nav>
-  </div>
-</header>
 
-    <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <article class="post">
-          <header class="post-header">
-            <h1 class="post-title" style="font-size:25px;">The Complete Guide to Training Large Language Models: A Three-Stage Pipeline</h1>
-            <p style="font-style: italic; color: #666; margin-top: 10px;">Ever wondered how massive language models like GPT go from piles of raw text to polished conversational AI? This guide breaks down the complete three-stage training pipeline — from data collection and pretraining to fine-tuning and deployment — in a clear, practical way.</p>
-            <p style="font-style: italic; color: #666;">A comprehensive, beginner-friendly guide with technical depth</p>
-          </header>
+        <a class="page-link" href="../projects/projects.html">Projects</a>
+        <a class="page-link" href="../blogs-main/blogs.html">Blogs</a>
+        <a class="page-link" href="../list-100/list-100.html">List 100</a>
+        <a class="page-link" href="../travel/travel.html">Travel</a>
 
-          <div class="post-content">
-            <h2 style="font-size:20px;">Table of Contents</h2>
-            <ol>
-              <li><a href="#introduction">Introduction: Why Three Stages?</a></li>
-              <li><a href="#stage1">Stage 1: Pretraining - Learning Language</a></li>
-              <li><a href="#stage2">Stage 2: Midtraining - Learning Structure</a></li>
-              <li><a href="#stage3">Stage 3: Fine-tuning - Learning Alignment</a></li>
-              <li><a href="#technical">Technical Deep Dives</a></li>
-              <li><a href="#best-practices">Best Practices and Common Pitfalls</a></li>
-              <li><a href="#conclusion">Conclusion</a></li>
-            </ol>
+        <!-- Theme Toggle in Navbar -->
+        <button class="theme-toggle-nav" id="theme-toggle-nav" aria-label="Toggle dark mode">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" />
+            <path
+              d="M12 1V3M12 21V23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M1 12H3M21 12H23M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+    </div>
+    </nav>
+    </div>
+  </header>
 
-            <hr style="margin: 30px 0; opacity: 0.3;">
+  <main class="page-content" aria-label="Content">
+    <div class="wrapper">
+      <article class="post">
+        <header class="post-header">
+          <h1 class="post-title" style="font-size:25px;">The Complete Guide to Training Large Language Models: A
+            Three-Stage Pipeline</h1>
+          <p style="font-style: italic; color: #666; margin-top: 10px;">Ever wondered how massive language models like
+            GPT go from piles of raw text to polished conversational AI? This guide breaks down the complete three-stage
+            training pipeline — from data collection and pretraining to fine-tuning and deployment — in a clear,
+            practical way.</p>
+          <p style="font-style: italic; color: #666;">A comprehensive, beginner-friendly guide with technical depth</p>
+        </header>
 
-            <h2 id="introduction" style="font-size:20px;">Introduction: Why Three Stages?</h2>
-            <p  style="font-style: italic; color: #666; margin-top: 10px;">When you interact with ChatGPT, Claude, or any modern AI assistant, you're talking to a model that went through multiple training stages. But why can't we just train a model once and be done with it?</p>
-            
-            <p>The answer lies in understanding what we're trying to teach at each stage.</p>
+        <div class="post-content">
+          <h2 style="font-size:20px;">Table of Contents</h2>
+          <ol>
+            <li><a href="#introduction">Introduction: Why Three Stages?</a></li>
+            <li><a href="#stage1">Stage 1: Pretraining - Learning Language</a></li>
+            <li><a href="#stage2">Stage 2: Midtraining - Learning Structure</a></li>
+            <li><a href="#stage3">Stage 3: Fine-tuning - Learning Alignment</a></li>
+            <li><a href="#technical">Technical Deep Dives</a></li>
+            <li><a href="#best-practices">Best Practices and Common Pitfalls</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+          </ol>
 
-            
-            <div style="text-align: center; margin: 20px 0;">
-              <img src="../img/pipeline.png" alt="Three-Stage Training Pipeline" style="max-width: 30%; height: auto;">
-              <p style="font-style: italic; color: #666; font-size: 14px; margin-top: 10px;">The complete three-stage training pipeline: from raw model to production-ready AI assistant</p>
-            </div>
+          <hr style="margin: 30px 0; opacity: 0.3;">
 
-            <h3 style="font-size:18px;">Real-World Analogy</h3>
-            <p>Think of training a doctor:</p>
-            <ul>
-              <li><strong>Medical School (Pretraining)</strong>: Learn vast amounts of knowledge - anatomy, biology, chemistry, diseases. Read textbooks, memorize facts. This takes years and covers everything broadly.</li>
-              <li><strong>Clinical Rotations (Midtraining)</strong>: Learn how hospitals work, how to interact with patients, what forms to fill out, when to order which tests. Understand the structure and protocols.</li>
-              <li><strong>Residency (Fine-tuning)</strong>: Specialize in your field. Learn the exact procedures, develop your bedside manner, understand when to be conservative vs aggressive. Become the specific type of doctor you want to be.</li>
-            </ul>
-            <p>You can't skip any stage. Without medical school, you don't know medicine. Without rotations, you don't know how to function in a hospital. Without residency, you're not ready to practice independently.</p>
-            <p>Now, let's break down the three stages of training a large language model.</p>
+          <h2 id="introduction" style="font-size:20px;">Introduction: Why Three Stages?</h2>
+          <p style="font-style: italic; color: #666; margin-top: 10px;">When you interact with ChatGPT, Claude, or any
+            modern AI assistant, you're talking to a model that went through multiple training stages. But why can't we
+            just train a model once and be done with it?</p>
 
-            <hr style="margin: 30px 0; opacity: 0.3;">
-            <h2 id="stage1" style="font-size:20px;">Stage 1: Pretraining - Learning Language</h2>
-            <p  style="font-style: italic; color: #666; margin-top: 10px;">Teach a neural network to understand and generate human language by predicting the next word in text sequences.</p>
+          <p>The answer lies in understanding what we're trying to teach at each stage.</p>
 
-            <h3 style="font-size:18px;">The Data</h3>
-            <p><strong>Source</strong>: Raw text from the internet</p>
-            <ul>
-              <li>Web pages (Common Crawl)</li>
-              <li>Books (Project Gutenberg, BookCorpus)</li>
-              <li>Wikipedia</li>
-              <li>Academic papers (ArXiv)</li>
-              <li>Code repositories (GitHub)</li>
-              <li>News articles</li>
-            </ul>
 
-            <p><strong>Size</strong>: Typically 100 billion to 2 trillion tokens. For example:</p>
-            <ul>
-              <li>GPT-3: ~300 billion tokens</li>
-              <li>PaLM: ~780 billion tokens</li>
-              <li>LLaMA: ~1.4 trillion tokens</li>
-            </ul>
+          <div style="text-align: center; margin: 20px 0;">
+            <img src="../img/pipeline.png" alt="Three-Stage Training Pipeline" style="max-width: 30%; height: auto;">
+            <p style="font-style: italic; color: #666; font-size: 14px; margin-top: 10px;">The complete three-stage
+              training pipeline: from raw model to production-ready AI assistant</p>
+          </div>
 
-            <p><strong>Format</strong>: Just plain text</p>
-            <pre><code>The quick brown fox jumps over the lazy dog.
+          <h3 style="font-size:18px;">Real-World Analogy</h3>
+          <p>Think of training a doctor:</p>
+          <ul>
+            <li><strong>Medical School (Pretraining)</strong>: Learn vast amounts of knowledge - anatomy, biology,
+              chemistry, diseases. Read textbooks, memorize facts. This takes years and covers everything broadly.</li>
+            <li><strong>Clinical Rotations (Midtraining)</strong>: Learn how hospitals work, how to interact with
+              patients, what forms to fill out, when to order which tests. Understand the structure and protocols.</li>
+            <li><strong>Residency (Fine-tuning)</strong>: Specialize in your field. Learn the exact procedures, develop
+              your bedside manner, understand when to be conservative vs aggressive. Become the specific type of doctor
+              you want to be.</li>
+          </ul>
+          <p>You can't skip any stage. Without medical school, you don't know medicine. Without rotations, you don't
+            know how to function in a hospital. Without residency, you're not ready to practice independently.</p>
+          <p>Now, let's break down the three stages of training a large language model.</p>
+
+          <hr style="margin: 30px 0; opacity: 0.3;">
+          <h2 id="stage1" style="font-size:20px;">Stage 1: Pretraining - Learning Language</h2>
+          <p style="font-style: italic; color: #666; margin-top: 10px;">Teach a neural network to understand and
+            generate human language by predicting the next word in text sequences.</p>
+
+          <h3 style="font-size:18px;">The Data</h3>
+          <p><strong>Source</strong>: Raw text from the internet</p>
+          <ul>
+            <li>Web pages (Common Crawl)</li>
+            <li>Books (Project Gutenberg, BookCorpus)</li>
+            <li>Wikipedia</li>
+            <li>Academic papers (ArXiv)</li>
+            <li>Code repositories (GitHub)</li>
+            <li>News articles</li>
+          </ul>
+
+          <p><strong>Size</strong>: Typically 100 billion to 2 trillion tokens. For example:</p>
+          <ul>
+            <li>GPT-3: ~300 billion tokens</li>
+            <li>PaLM: ~780 billion tokens</li>
+            <li>LLaMA: ~1.4 trillion tokens</li>
+          </ul>
+
+          <p><strong>Format</strong>: Just plain text</p>
+          <pre><code>The quick brown fox jumps over the lazy dog.
 Photosynthesis is the process by which plants convert sunlight into energy.
 def fibonacci(n):
     if n <= 1:
         return n
     return fibonacci(n-1) + fibonacci(n-2)</code></pre>
 
-            <h3 style="font-size:18px;">The Training Objective: Next Token Prediction</h3>
-            <p>The fundamental task is deceptively simple: <strong>given a sequence of tokens, predict what comes next</strong>.</p>
+          <h3 style="font-size:18px;">The Training Objective: Next Token Prediction</h3>
+          <p>The fundamental task is deceptively simple: <strong>given a sequence of tokens, predict what comes
+              next</strong>.</p>
 
-            <div style="text-align: center; margin: 20px 0;">
-              <img src="../img/image.png" alt="Next Token Prediction Example" style="max-width: 100%; height: auto;">
-            </div>
+          <div style="text-align: center; margin: 20px 0;">
+            <img src="../img/image.png" alt="Next Token Prediction Example" style="max-width: 100%; height: auto;">
+          </div>
 
 
-            <h3 style="font-size:18px;">How It Works: The Transformer Architecture</h3>
-            <p>At the core is the <strong>Transformer</strong>, consisting of:</p>
+          <h3 style="font-size:18px;">How It Works: The Transformer Architecture</h3>
+          <p>At the core is the <strong>Transformer</strong>, consisting of:</p>
 
-            <p><strong>1. Token Embeddings</strong>: Convert words to vectors</p>
-            <pre><code>"cat" → [0.2, -0.5, 0.8, ..., 0.1]  (768 dimensions)</code></pre>
+          <p><strong>1. Token Embeddings</strong>: Convert words to vectors</p>
+          <pre><code>"cat" → [0.2, -0.5, 0.8, ..., 0.1]  (768 dimensions)</code></pre>
 
-            <p><strong>2. Positional Encodings</strong>: Add position information</p>
-            <pre><code>Position 0: [0.0, 1.0, 0.0, ...]
+          <p><strong>2. Positional Encodings</strong>: Add position information</p>
+          <pre><code>Position 0: [0.0, 1.0, 0.0, ...]
 Position 1: [0.5, 0.9, 0.1, ...]</code></pre>
 
-            <p><strong>3. Transformer Blocks</strong> (repeated 12-96 times):</p>
-            <pre><code>Input → Attention → Add & Norm → FFN → Add & Norm → Output</code></pre>
+          <p><strong>3. Transformer Blocks</strong> (repeated 12-96 times):</p>
+          <pre><code>Input → Attention → Add & Norm → FFN → Add & Norm → Output</code></pre>
 
-            <p><strong>4. Output Head</strong>: Predict probability for each word</p>
-            <pre><code>[0.01, 0.02, ..., 0.45, ..., 0.001]  (50,000 words)
+          <p><strong>4. Output Head</strong>: Predict probability for each word</p>
+          <pre><code>[0.01, 0.02, ..., 0.45, ..., 0.001]  (50,000 words)
                         ↑
                      "Paris" has highest probability</code></pre>
 
-            <h3 style="font-size:18px;">Visual: The Pretraining Process</h3>
-            <pre><code>STEP 1: Tokenization
+          <h3 style="font-size:18px;">Visual: The Pretraining Process</h3>
+          <pre><code>STEP 1: Tokenization
 ────────────────────
 Text: "The cat sat on the mat"
 Tokens: [464, 2415, 3332, 319, 262, 2603]
@@ -172,127 +205,130 @@ STEP 5: Backpropagation
 ───────────────────────
 Update all weights to make better predictions</code></pre>
 
-            <h3 style="font-size:18px;">What The Model Learns</h3>
-            <p>After processing billions of tokens, the model learns:</p>
+          <h3 style="font-size:18px;">What The Model Learns</h3>
+          <p>After processing billions of tokens, the model learns:</p>
 
-            <p><strong>1. Grammar and Syntax</strong></p>
-            <pre><code>Input:  "She go to the store"
+          <p><strong>1. Grammar and Syntax</strong></p>
+          <pre><code>Input:  "She go to the store"
 Model learns this is wrong, predicts:
 Output: "She goes to the store"</code></pre>
 
-            <p><strong>2. Factual Knowledge</strong></p>
-            <pre><code>Input:  "The capital of France is"
+          <p><strong>2. Factual Knowledge</strong></p>
+          <pre><code>Input:  "The capital of France is"
 Model learns from thousands of Wikipedia articles:
 Output: "Paris"</code></pre>
 
-            <p><strong>3. Reasoning Patterns</strong></p>
-            <pre><code>Input:  "If x + 5 = 10, then x ="
+          <p><strong>3. Reasoning Patterns</strong></p>
+          <pre><code>Input:  "If x + 5 = 10, then x ="
 Model learns from math textbooks:
 Output: "5"</code></pre>
 
-            <p><strong>4. Code Patterns</strong></p>
-            <pre><code>Input:  "def factorial(n):\n    if n == 0:"
+          <p><strong>4. Code Patterns</strong></p>
+          <pre><code>Input:  "def factorial(n):\n    if n == 0:"
 Model learns from GitHub:
 Output: "\n        return 1"</code></pre>
 
-            <p><strong>5. Common Sense</strong></p>
-            <pre><code>Input:  "I dropped my phone in water. I should"
+          <p><strong>5. Common Sense</strong></p>
+          <pre><code>Input:  "I dropped my phone in water. I should"
 Model learns from forums and articles:
 Output: "put it in rice" or "turn it off immediately"</code></pre>
 
-            <h3 style="font-size:18px;">Training Hyperparameters</h3>
-            <p><strong>Model Size</strong>: Number of parameters</p>
-            <ul>
-              <li>Small: 125M - 1B parameters</li>
-              <li>Medium: 1B - 10B parameters</li>
-              <li>Large: 10B - 100B parameters</li>
-              <li>Very Large: 100B+ parameters (GPT-4 rumored ~1.7T)</li>
-            </ul>
+          <h3 style="font-size:18px;">Training Hyperparameters</h3>
+          <p><strong>Model Size</strong>: Number of parameters</p>
+          <ul>
+            <li>Small: 125M - 1B parameters</li>
+            <li>Medium: 1B - 10B parameters</li>
+            <li>Large: 10B - 100B parameters</li>
+            <li>Very Large: 100B+ parameters (GPT-4 rumored ~1.7T)</li>
+          </ul>
 
-            <p><strong>Batch Size</strong>: How many tokens per update</p>
-            <ul>
-              <li>Typical: 2M - 4M tokens per batch</li>
-              <li>GPT-3: 3.2M tokens</li>
-            </ul>
+          <p><strong>Batch Size</strong>: How many tokens per update</p>
+          <ul>
+            <li>Typical: 2M - 4M tokens per batch</li>
+            <li>GPT-3: 3.2M tokens</li>
+          </ul>
 
-            <p><strong>Learning Rate</strong>: How fast to update weights</p>
-            <ul>
-              <li>Typical: 1e-4 to 6e-4</li>
-              <li>Usually with warmup and decay</li>
-            </ul>
+          <p><strong>Learning Rate</strong>: How fast to update weights</p>
+          <ul>
+            <li>Typical: 1e-4 to 6e-4</li>
+            <li>Usually with warmup and decay</li>
+          </ul>
 
-            <p><strong>Training Time</strong>:</p>
-            <ul>
-              <li>GPT-3 (175B): ~34 days on 1024 A100 GPUs</li>
-              <li>LLaMA-65B: ~21 days on 2048 A100 GPUs</li>
-            </ul>
+          <p><strong>Training Time</strong>:</p>
+          <ul>
+            <li>GPT-3 (175B): ~34 days on 1024 A100 GPUs</li>
+            <li>LLaMA-65B: ~21 days on 2048 A100 GPUs</li>
+          </ul>
 
-            <p><strong>Cost</strong>:</p>
-            <ul>
-              <li>GPT-3 estimated: $4-12 million</li>
-              <li>Average 7B model: $50,000 - $200,000</li>
-            </ul>
+          <p><strong>Cost</strong>:</p>
+          <ul>
+            <li>GPT-3 estimated: $4-12 million</li>
+            <li>Average 7B model: $50,000 - $200,000</li>
+          </ul>
 
-            <h3 style="font-size:18px;">The Result: A Base Language Model</h3>
-            <p>After pretraining, you have a model that:</p>
-            <p>✅ Can complete sentences coherently<br>
+          <h3 style="font-size:18px;">The Result: A Base Language Model</h3>
+          <p>After pretraining, you have a model that:</p>
+          <p>✅ Can complete sentences coherently<br>
             ✅ Has broad knowledge of many topics<br>
             ✅ Can generate code, poetry, and explanations<br>
             ✅ Understands grammar and syntax</p>
 
-            <p>❌ Doesn't follow instructions well<br>
+          <p>❌ Doesn't follow instructions well<br>
             ❌ Doesn't know when to stop<br>
             ❌ Can't have conversations<br>
             ❌ May generate unsafe content<br>
             ❌ Doesn't use tools or structured outputs</p>
 
-            <p><strong>Example interaction with base model:</strong></p>
-            <pre><code>Prompt: "What is 2+2?"
+          <p><strong>Example interaction with base model:</strong></p>
+          <pre><code>Prompt: "What is 2+2?"
 
 Base Model Output:
 "What is 2+2? This is a common math problem. The answer is 4. 
 What is 3+3? The answer is 6. What is 4+4? The answer is 8..."
 [continues forever, doesn't know when to stop]</code></pre>
-            <hr style="margin: 30px 0; opacity: 0.3;">
-            <h2 id="stage2" style="font-size:20px;">Stage 2: Midtraining - Learning Structure</h2>
+          <hr style="margin: 30px 0; opacity: 0.3;">
+          <h2 id="stage2" style="font-size:20px;">Stage 2: Midtraining - Learning Structure</h2>
 
-            <h3 style="font-size:18px;">The Goal</h3>
-            <p>Teach the base model how to have structured conversations, use tools, and follow specific formats without changing its core knowledge.</p>
+          <h3 style="font-size:18px;">The Goal</h3>
+          <p>Teach the base model how to have structured conversations, use tools, and follow specific formats without
+            changing its core knowledge.</p>
 
-            <h3 style="font-size:18px;">Why Midtraining is Necessary</h3>
-            <p>The base model is like a very knowledgeable person who doesn't know how to have a proper conversation. They might:</p>
-            <ul>
-              <li>Start answering before you finish asking</li>
-              <li>Never stop talking</li>
-              <li>Not understand turn-taking</li>
-              <li>Not know how to use tools or resources</li>
-              <li>Not recognize question formats</li>
-            </ul>
-            <p>Midtraining fixes this by teaching <strong>conversation structure</strong> and <strong>interaction patterns</strong>.</p>
+          <h3 style="font-size:18px;">Why Midtraining is Necessary</h3>
+          <p>The base model is like a very knowledgeable person who doesn't know how to have a proper conversation. They
+            might:</p>
+          <ul>
+            <li>Start answering before you finish asking</li>
+            <li>Never stop talking</li>
+            <li>Not understand turn-taking</li>
+            <li>Not know how to use tools or resources</li>
+            <li>Not recognize question formats</li>
+          </ul>
+          <p>Midtraining fixes this by teaching <strong>conversation structure</strong> and <strong>interaction
+              patterns</strong>.</p>
 
-            <h3 style="font-size:18px;">The Data</h3>
-            <p><strong>Size</strong>: 100 million to 1 billion tokens (100-1000x smaller than pretraining)</p>
-            <p><strong>Format</strong>: Structured conversations with special tokens</p>
+          <h3 style="font-size:18px;">The Data</h3>
+          <p><strong>Size</strong>: 100 million to 1 billion tokens (100-1000x smaller than pretraining)</p>
+          <p><strong>Format</strong>: Structured conversations with special tokens</p>
 
-            <p><strong>Types</strong>:</p>
+          <p><strong>Types</strong>:</p>
 
-            <p><strong>1. Dialogue Data</strong></p>
-            <pre><code>&lt;|begin|&gt;
+          <p><strong>1. Dialogue Data</strong></p>
+          <pre><code>&lt;|begin|&gt;
 &lt;|user|&gt;What is the weather like today?&lt;|end_user|&gt;
 &lt;|assistant|&gt;I don't have access to real-time weather data. 
 You can check weather.com for current conditions in your area.&lt;|end_assistant|&gt;
 &lt;|end|&gt;</code></pre>
 
-            <p><strong>2. Tool Use Examples</strong></p>
-            <pre><code>&lt;|begin|&gt;
+          <p><strong>2. Tool Use Examples</strong></p>
+          <pre><code>&lt;|begin|&gt;
 &lt;|user|&gt;What's 1234 multiplied by 5678?&lt;|end_user|&gt;
 &lt;|assistant|&gt;&lt;|tool_call|&gt;calculator(1234 * 5678)&lt;|end_tool_call|&gt;
 &lt;|tool_result|&gt;7006652&lt;|end_tool_result|&gt;
 &lt;|assistant|&gt;1234 × 5678 = 7,006,652&lt;|end_assistant|&gt;
 &lt;|end|&gt;</code></pre>
 
-            <p><strong>3. Multiple Choice Format</strong></p>
-            <pre><code>&lt;|begin|&gt;
+          <p><strong>3. Multiple Choice Format</strong></p>
+          <pre><code>&lt;|begin|&gt;
 &lt;|user|&gt;Which planet is largest?
 A) Earth
 B) Jupiter  
@@ -303,17 +339,17 @@ planet in our solar system with a diameter of about
 143,000 kilometers.&lt;|end_assistant|&gt;
 &lt;|end|&gt;</code></pre>
 
-            <p><strong>4. System Instructions</strong></p>
-            <pre><code>&lt;|begin|&gt;
+          <p><strong>4. System Instructions</strong></p>
+          <pre><code>&lt;|begin|&gt;
 &lt;|system|&gt;You are a helpful assistant that speaks like a pirate.&lt;|end_system|&gt;
 &lt;|user|&gt;Tell me about the ocean.&lt;|end_user|&gt;
 &lt;|assistant|&gt;Arr matey! The seven seas be vast and deep, 
 filled with treasure and creatures of the deep...&lt;|end_assistant|&gt;
 &lt;|end|&gt;</code></pre>
 
-            <h3 style="font-size:18px;">Understanding Special Tokens</h3>
-            <p>Special tokens are like punctuation marks for AI conversations:</p>
-            <pre><code>┌────────────────────────────────────────────────────┐
+          <h3 style="font-size:18px;">Understanding Special Tokens</h3>
+          <p>Special tokens are like punctuation marks for AI conversations:</p>
+          <pre><code>┌────────────────────────────────────────────────────┐
 │  Token           Purpose                            │
 ├────────────────────────────────────────────────────┤
 │  &lt;|begin|&gt;       Start of conversation              │
@@ -326,9 +362,9 @@ filled with treasure and creatures of the deep...&lt;|end_assistant|&gt;
 │  &lt;|end|&gt;         End of entire conversation         │
 └────────────────────────────────────────────────────┘</code></pre>
 
-            <h3 style="font-size:18px;">How Midtraining Works</h3>
-            <p><strong>Training Objective</strong>: Still next-token prediction, but now with structure</p>
-            <pre><code>Input Sequence:
+          <h3 style="font-size:18px;">How Midtraining Works</h3>
+          <p><strong>Training Objective</strong>: Still next-token prediction, but now with structure</p>
+          <pre><code>Input Sequence:
 &lt;|begin|&gt; &lt;|user|&gt; Hello &lt;|end_user|&gt;
 
 The model learns:
@@ -339,8 +375,8 @@ The model learns:
 - After &lt;|assistant|&gt;, comes assistant response
 - After response, comes &lt;|end_assistant|&gt;</code></pre>
 
-            <h3 style="font-size:18px;">Visual: The Midtraining Process</h3>
-            <pre><code>BEFORE MIDTRAINING
+          <h3 style="font-size:18px;">Visual: The Midtraining Process</h3>
+          <pre><code>BEFORE MIDTRAINING
 ──────────────────
 User: "What is 2+2?"
 Base Model: "What is 2+2? This is a basic arithmetic problem. 
@@ -366,9 +402,9 @@ User: "What is 2+2?"
 Mid Model: "2+2 equals 4."
 [Stops appropriately, respects conversation structure]</code></pre>
 
-            <h3 style="font-size:18px;">Loss Masking: A Critical Detail</h3>
-            <p>During midtraining, we <strong>only train on assistant responses</strong>, not user inputs:</p>
-            <pre><code>Sequence:
+          <h3 style="font-size:18px;">Loss Masking: A Critical Detail</h3>
+          <p>During midtraining, we <strong>only train on assistant responses</strong>, not user inputs:</p>
+          <pre><code>Sequence:
 &lt;|user|&gt;What is 2+2?&lt;|end_user|&gt;&lt;|assistant|&gt;2+2 = 4&lt;|end_assistant|&gt;
 
 Training Loss Applied:
@@ -379,74 +415,76 @@ Training Loss Applied:
 ✗ = No loss computed (don't train on user input)
 ✓ = Loss computed (train on assistant output)</code></pre>
 
-            <p><strong>Why?</strong> We want the model to learn how to respond, not how to ask questions!</p>
+          <p><strong>Why?</strong> We want the model to learn how to respond, not how to ask questions!</p>
 
-            <h3 style="font-size:18px;">What Changes During Midtraining</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>Capability</th>
-                  <th>Base Model</th>
-                  <th>After Midtraining</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Stopping</strong></td>
-                  <td>Never stops naturally</td>
-                  <td>Stops at end tokens</td>
-                </tr>
-                <tr>
-                  <td><strong>Turn-taking</strong></td>
-                  <td>Doesn't understand roles</td>
-                  <td>Respects user/assistant turns</td>
-                </tr>
-                <tr>
-                  <td><strong>Tools</strong></td>
-                  <td>Can't use functions</td>
-                  <td>Formats tool calls correctly</td>
-                </tr>
-                <tr>
-                  <td><strong>Format</strong></td>
-                  <td>Ignores structure</td>
-                  <td>Handles multiple-choice, JSON</td>
-                </tr>
-                <tr>
-                  <td><strong>Instructions</strong></td>
-                  <td>Inconsistent following</td>
-                  <td>Better instruction adherence</td>
-                </tr>
-              </tbody>
-            </table>
+          <h3 style="font-size:18px;">What Changes During Midtraining</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Capability</th>
+                <th>Base Model</th>
+                <th>After Midtraining</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Stopping</strong></td>
+                <td>Never stops naturally</td>
+                <td>Stops at end tokens</td>
+              </tr>
+              <tr>
+                <td><strong>Turn-taking</strong></td>
+                <td>Doesn't understand roles</td>
+                <td>Respects user/assistant turns</td>
+              </tr>
+              <tr>
+                <td><strong>Tools</strong></td>
+                <td>Can't use functions</td>
+                <td>Formats tool calls correctly</td>
+              </tr>
+              <tr>
+                <td><strong>Format</strong></td>
+                <td>Ignores structure</td>
+                <td>Handles multiple-choice, JSON</td>
+              </tr>
+              <tr>
+                <td><strong>Instructions</strong></td>
+                <td>Inconsistent following</td>
+                <td>Better instruction adherence</td>
+              </tr>
+            </tbody>
+          </table>
 
-            <h3 style="font-size:18px;">Training Hyperparameters</h3>
-            <p><strong>Key Differences from Pretraining:</strong></p>
-            <ul>
-              <li><strong>Data Size</strong>: 100-1000x smaller (100M-1B tokens vs 100B-2T)</li>
-              <li><strong>Learning Rate</strong>: Lower (1e-5 to 1e-4 vs 1e-4 to 6e-4)</li>
-              <li><strong>Epochs</strong>: Usually 1-3 epochs (vs 1 epoch for pretraining)</li>
-              <li><strong>Training Time</strong>: Hours to days (vs weeks to months)</li>
-              <li><strong>Cost</strong>: $100-$10,000 (vs $50K-$10M)</li>
-            </ul>
+          <h3 style="font-size:18px;">Training Hyperparameters</h3>
+          <p><strong>Key Differences from Pretraining:</strong></p>
+          <ul>
+            <li><strong>Data Size</strong>: 100-1000x smaller (100M-1B tokens vs 100B-2T)</li>
+            <li><strong>Learning Rate</strong>: Lower (1e-5 to 1e-4 vs 1e-4 to 6e-4)</li>
+            <li><strong>Epochs</strong>: Usually 1-3 epochs (vs 1 epoch for pretraining)</li>
+            <li><strong>Training Time</strong>: Hours to days (vs weeks to months)</li>
+            <li><strong>Cost</strong>: $100-$10,000 (vs $50K-$10M)</li>
+          </ul>
 
-            <p><strong>Why lower learning rate?</strong> The model already knows language - we're just teaching it structure. Too high a learning rate would overwrite important pretraining knowledge (catastrophic forgetting).</p>
+          <p><strong>Why lower learning rate?</strong> The model already knows language - we're just teaching it
+            structure. Too high a learning rate would overwrite important pretraining knowledge (catastrophic
+            forgetting).</p>
 
-            <h3 style="font-size:18px;">The Result: A Structured Model</h3>
-            <p>After midtraining, you have a model that:</p>
-            <p>✅ Can complete sentences<br>
+          <h3 style="font-size:18px;">The Result: A Structured Model</h3>
+          <p>After midtraining, you have a model that:</p>
+          <p>✅ Can complete sentences<br>
             ✅ Has broad knowledge<br>
             ✅ Understands conversation structure<br>
             ✅ Stops at appropriate times<br>
             ✅ Can use tools and functions<br>
             ✅ Handles structured formats</p>
 
-            <p>⚠️ Better at following instructions (but not perfect)<br>
+          <p>⚠️ Better at following instructions (but not perfect)<br>
             ❌ Still may generate unsafe content<br>
             ❌ Behavior not fully aligned<br>
             ❌ May still hallucinate</p>
 
-            <p><strong>Example interaction:</strong></p>
-            <pre><code>User: "What is 2+2?"
+          <p><strong>Example interaction:</strong></p>
+          <pre><code>User: "What is 2+2?"
 Mid Model: "2+2 equals 4."
 [Stops appropriately!]
 
@@ -458,31 +496,32 @@ User: "Calculate 1234 * 5678"
 Mid Model: &lt;tool_call&gt;calculator(1234 * 5678)&lt;/tool_call&gt;
 [Uses tool correctly!]</code></pre>
 
-            <hr style="margin: 30px 0; opacity: 0.3;">
-            <h2 id="stage3" style="font-size:20px;">Stage 3: Fine-tuning - Learning Alignment</h2>
-            <p  style="font-style: italic; color: #666; margin-top: 10px;">Align the model's behavior with human values and preferences. Make it helpful, harmless, and honest.</p>
+          <hr style="margin: 30px 0; opacity: 0.3;">
+          <h2 id="stage3" style="font-size:20px;">Stage 3: Fine-tuning - Learning Alignment</h2>
+          <p style="font-style: italic; color: #666; margin-top: 10px;">Align the model's behavior with human values and
+            preferences. Make it helpful, harmless, and honest.</p>
 
-            <h3 style="font-size:18px;">Why Fine-tuning is Necessary</h3>
-            <p>After midtraining, the model understands structure but doesn't know:</p>
-            <ul>
-              <li>What kind of responses are helpful vs unhelpful</li>
-              <li>When to refuse harmful requests</li>
-              <li>How to admit uncertainty</li>
-              <li>What tone to use</li>
-              <li>How detailed to be</li>
-              <li>When to ask clarifying questions</li>
-            </ul>
-            <p>Fine-tuning teaches the model <strong>how to behave</strong>.</p>
+          <h3 style="font-size:18px;">Why Fine-tuning is Necessary</h3>
+          <p>After midtraining, the model understands structure but doesn't know:</p>
+          <ul>
+            <li>What kind of responses are helpful vs unhelpful</li>
+            <li>When to refuse harmful requests</li>
+            <li>How to admit uncertainty</li>
+            <li>What tone to use</li>
+            <li>How detailed to be</li>
+            <li>When to ask clarifying questions</li>
+          </ul>
+          <p>Fine-tuning teaches the model <strong>how to behave</strong>.</p>
 
-            <h3 style="font-size:18px;">The Data</h3>
-            <p><strong>Size</strong>: 10,000 to 100,000 examples (1000x smaller than midtraining!)</p>
-            <p><strong>Quality over Quantity</strong>: Each example is carefully crafted to show ideal behavior</p>
-            <p><strong>Format</strong>: High-quality demonstration conversations</p>
+          <h3 style="font-size:18px;">The Data</h3>
+          <p><strong>Size</strong>: 10,000 to 100,000 examples (1000x smaller than midtraining!)</p>
+          <p><strong>Quality over Quantity</strong>: Each example is carefully crafted to show ideal behavior</p>
+          <p><strong>Format</strong>: High-quality demonstration conversations</p>
 
-            <p><strong>Types</strong>:</p>
+          <p><strong>Types</strong>:</p>
 
-            <p><strong>1. Helpful Responses</strong></p>
-            <pre><code>&lt;|user|&gt;How do I bake chocolate chip cookies?&lt;|end_user|&gt;
+          <p><strong>1. Helpful Responses</strong></p>
+          <pre><code>&lt;|user|&gt;How do I bake chocolate chip cookies?&lt;|end_user|&gt;
 &lt;|assistant|&gt;Here's a simple chocolate chip cookie recipe:
 
 **Ingredients:**
@@ -509,8 +548,8 @@ Mid Model: &lt;tool_call&gt;calculator(1234 * 5678)&lt;/tool_call&gt;
 
 Makes about 5 dozen cookies. Enjoy!&lt;|end_assistant|&gt;</code></pre>
 
-            <p><strong>2. Refusing Harmful Requests</strong></p>
-            <pre><code>&lt;|user|&gt;How do I hack into someone's email account?&lt;|end_user|&gt;
+          <p><strong>2. Refusing Harmful Requests</strong></p>
+          <pre><code>&lt;|user|&gt;How do I hack into someone's email account?&lt;|end_user|&gt;
 &lt;|assistant|&gt;I can't help with that. Hacking into someone's 
 email account is illegal and violates their privacy. 
 
@@ -518,8 +557,8 @@ If you've lost access to your own email account, I'd be happy
 to guide you through the legitimate account recovery process 
 with your email provider instead.&lt;|end_assistant|&gt;</code></pre>
 
-            <p><strong>3. Admitting Uncertainty</strong></p>
-            <pre><code>&lt;|user|&gt;What will the stock market do next week?&lt;|end_user|&gt;
+          <p><strong>3. Admitting Uncertainty</strong></p>
+          <pre><code>&lt;|user|&gt;What will the stock market do next week?&lt;|end_user|&gt;
 &lt;|assistant|&gt;I can't predict what the stock market will do 
 next week with any certainty. Stock markets are influenced by 
 countless factors and are inherently unpredictable in the 
@@ -533,8 +572,8 @@ What I can tell you:
 
 Would any of that information be helpful?&lt;|end_assistant|&gt;</code></pre>
 
-            <p><strong>4. Asking Clarifying Questions</strong></p>
-            <pre><code>&lt;|user|&gt;Write me a program&lt;|end_user|&gt;
+          <p><strong>4. Asking Clarifying Questions</strong></p>
+          <pre><code>&lt;|user|&gt;Write me a program&lt;|end_user|&gt;
 &lt;|assistant|&gt;I'd be happy to help you write a program! To 
 create something useful, I need a bit more information:
 
@@ -546,24 +585,24 @@ create something useful, I need a bit more information:
 
 Once I know more, I can write exactly what you need.&lt;|end_assistant|&gt;</code></pre>
 
-            <h3 style="font-size:18px;">Types of Fine-tuning</h3>
-            <p><strong>1. Supervised Fine-Tuning (SFT)</strong><br>
+          <h3 style="font-size:18px;">Types of Fine-tuning</h3>
+          <p><strong>1. Supervised Fine-Tuning (SFT)</strong><br>
             - Train on human-written demonstrations<br>
             - Most common initial approach<br>
             - Straightforward: show examples of good behavior</p>
 
-            <p><strong>2. Reinforcement Learning from Human Feedback (RLHF)</strong><br>
+          <p><strong>2. Reinforcement Learning from Human Feedback (RLHF)</strong><br>
             - Train a reward model from human preferences<br>
             - Use RL to maximize reward<br>
             - More complex but often better results</p>
 
-            <p><strong>3. Direct Preference Optimization (DPO)</strong><br>
+          <p><strong>3. Direct Preference Optimization (DPO)</strong><br>
             - Newer method, simpler than RLHF<br>
             - Directly optimize for preferences<br>
             - No separate reward model needed</p>
 
-            <h3 style="font-size:18px;">Visual: Supervised Fine-Tuning Process</h3>
-            <pre><code>STEP 1: Collect Demonstrations
+          <h3 style="font-size:18px;">Visual: Supervised Fine-Tuning Process</h3>
+          <pre><code>STEP 1: Collect Demonstrations
 ───────────────────────────────
 Humans write ideal responses to prompts
 ↓
@@ -587,8 +626,8 @@ STEP 4: Iterate
 - Add more examples addressing failures
 - Repeat</code></pre>
 
-            <h3 style="font-size:18px;">RLHF Process (Advanced)</h3>
-            <pre><code>PHASE 1: Create Reward Model
+          <h3 style="font-size:18px;">RLHF Process (Advanced)</h3>
+          <pre><code>PHASE 1: Create Reward Model
 ─────────────────────────────
 1. Generate multiple responses to each prompt
 2. Humans rank responses: A > B > C > D
@@ -603,8 +642,8 @@ PHASE 2: RL Fine-tuning
 
 Result: Model learns to generate responses humans prefer</code></pre>
 
-            <h3 style="font-size:18px;">Loss Masking (Again, Critical!)</h3>
-            <pre><code>Training Example:
+          <h3 style="font-size:18px;">Loss Masking (Again, Critical!)</h3>
+          <pre><code>Training Example:
 &lt;|system|&gt;You are helpful.&lt;|end_system|&gt;
 &lt;|user|&gt;What is 2+2?&lt;|end_user|&gt;
 &lt;|assistant|&gt;2+2 equals 4.&lt;|end_assistant|&gt;
@@ -616,73 +655,73 @@ Loss Computation:
 
 Only train on what we want the assistant to say!</code></pre>
 
-            <h3 style="font-size:18px;">What Changes During Fine-tuning</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>Aspect</th>
-                  <th>Mid Model</th>
-                  <th>After Fine-tuning</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Helpfulness</strong></td>
-                  <td>Sometimes vague</td>
-                  <td>Consistently helpful</td>
-                </tr>
-                <tr>
-                  <td><strong>Safety</strong></td>
-                  <td>May comply with bad requests</td>
-                  <td>Appropriately refuses</td>
-                </tr>
-                <tr>
-                  <td><strong>Honesty</strong></td>
-                  <td>May be overconfident</td>
-                  <td>Admits uncertainty</td>
-                </tr>
-                <tr>
-                  <td><strong>Tone</strong></td>
-                  <td>Inconsistent</td>
-                  <td>Consistent personality</td>
-                </tr>
-                <tr>
-                  <td><strong>Detail</strong></td>
-                  <td>Variable</td>
-                  <td>Appropriate level</td>
-                </tr>
-                <tr>
-                  <td><strong>Clarification</strong></td>
-                  <td>Rarely asks</td>
-                  <td>Asks when needed</td>
-                </tr>
-              </tbody>
-            </table>
+          <h3 style="font-size:18px;">What Changes During Fine-tuning</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Aspect</th>
+                <th>Mid Model</th>
+                <th>After Fine-tuning</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Helpfulness</strong></td>
+                <td>Sometimes vague</td>
+                <td>Consistently helpful</td>
+              </tr>
+              <tr>
+                <td><strong>Safety</strong></td>
+                <td>May comply with bad requests</td>
+                <td>Appropriately refuses</td>
+              </tr>
+              <tr>
+                <td><strong>Honesty</strong></td>
+                <td>May be overconfident</td>
+                <td>Admits uncertainty</td>
+              </tr>
+              <tr>
+                <td><strong>Tone</strong></td>
+                <td>Inconsistent</td>
+                <td>Consistent personality</td>
+              </tr>
+              <tr>
+                <td><strong>Detail</strong></td>
+                <td>Variable</td>
+                <td>Appropriate level</td>
+              </tr>
+              <tr>
+                <td><strong>Clarification</strong></td>
+                <td>Rarely asks</td>
+                <td>Asks when needed</td>
+              </tr>
+            </tbody>
+          </table>
 
-            <h3 style="font-size:18px;">Training Hyperparameters</h3>
-            <p><strong>Even Lower Learning Rate</strong>: 1e-6 to 1e-5<br>
+          <h3 style="font-size:18px;">Training Hyperparameters</h3>
+          <p><strong>Even Lower Learning Rate</strong>: 1e-6 to 1e-5<br>
             - We're making small adjustments, not large changes<br>
             - Too high risks catastrophic forgetting</p>
 
-            <p><strong>Fewer Epochs</strong>: 1-5 epochs<br>
+          <p><strong>Fewer Epochs</strong>: 1-5 epochs<br>
             - Small, high-quality dataset<br>
             - More epochs risk overfitting</p>
 
-            <p><strong>Small Batch Size</strong>: Often 4-32 examples<br>
+          <p><strong>Small Batch Size</strong>: Often 4-32 examples<br>
             - Focus on each example carefully<br>
             - Quality over speed</p>
 
-            <p><strong>Training Time</strong>: Minutes to hours<br>
+          <p><strong>Training Time</strong>: Minutes to hours<br>
             - Much faster than previous stages<br>
             - Can iterate quickly</p>
 
-            <p><strong>Cost</strong>: $10 - $1,000<br>
+          <p><strong>Cost</strong>: $10 - $1,000<br>
             - Cheapest stage by far<br>
             - Most cost-effective improvements</p>
 
-            <h3 style="font-size:18px;">The Result: Production-Ready Model</h3>
-            <p>After fine-tuning, you have a model that:</p>
-            <p>✅ Can complete sentences<br>
+          <h3 style="font-size:18px;">The Result: Production-Ready Model</h3>
+          <p>After fine-tuning, you have a model that:</p>
+          <p>✅ Can complete sentences<br>
             ✅ Has broad knowledge<br>
             ✅ Understands conversation structure<br>
             ✅ Stops at appropriate times<br>
@@ -694,8 +733,8 @@ Only train on what we want the assistant to say!</code></pre>
             ✅ Maintains consistent tone<br>
             ✅ Asks clarifying questions</p>
 
-            <p><strong>Example interaction:</strong></p>
-            <pre><code>User: "How do I make a bomb?"
+          <p><strong>Example interaction:</strong></p>
+          <pre><code>User: "How do I make a bomb?"
 Production Model: "I can't provide instructions for making 
 explosives or weapons. This information could be used to harm 
 people and is illegal in most jurisdictions.
@@ -718,31 +757,32 @@ Here's a simple recipe:
 ..."
 [Appropriately adjusts based on clarification]</code></pre>
 
-            <h2 id="technical" style="font-size:20px;">Technical Deep Dives</h2>
+          <h2 id="technical" style="font-size:20px;">Technical Deep Dives</h2>
 
-            <h3 style="font-size:18px;">Deep Dive 1: Why Next-Token Prediction Works</h3>
-            <p><strong>The Fundamental Question</strong>: How does predicting the next word teach a model to understand language?</p>
+          <h3 style="font-size:18px;">Deep Dive 1: Why Next-Token Prediction Works</h3>
+          <p><strong>The Fundamental Question</strong>: How does predicting the next word teach a model to understand
+            language?</p>
 
-            <p><strong>Answer</strong>: Compression requires understanding.</p>
+          <p><strong>Answer</strong>: Compression requires understanding.</p>
 
-            <p>To predict the next token accurately, the model must:</p>
+          <p>To predict the next token accurately, the model must:</p>
 
-            <p><strong>1. Understand grammar</strong>: "She go" → must predict "goes" or "went", not "going"</p>
+          <p><strong>1. Understand grammar</strong>: "She go" → must predict "goes" or "went", not "going"</p>
 
-            <p><strong>2. Track context</strong>:</p>
-            <pre><code>"The trophy doesn't fit in the suitcase because it is too big."
+          <p><strong>2. Track context</strong>:</p>
+          <pre><code>"The trophy doesn't fit in the suitcase because it is too big."
 "it" refers to → trophy (not suitcase)
 Must understand relationships</code></pre>
 
-            <p><strong>3. Apply knowledge</strong>:</p>
-            <pre><code>"The capital of France is" → must have learned "Paris" from training data</code></pre>
+          <p><strong>3. Apply knowledge</strong>:</p>
+          <pre><code>"The capital of France is" → must have learned "Paris" from training data</code></pre>
 
-            <p><strong>4. Reason</strong>:</p>
-            <pre><code>"John is taller than Mary. Mary is taller than Sue. Therefore, John is" 
+          <p><strong>4. Reason</strong>:</p>
+          <pre><code>"John is taller than Mary. Mary is taller than Sue. Therefore, John is" 
 → must infer "taller than Sue"</code></pre>
 
-            <p><strong>Mathematical Intuition</strong>:</p>
-            <pre><code>P(next_token | previous_tokens) 
+          <p><strong>Mathematical Intuition</strong>:</p>
+          <pre><code>P(next_token | previous_tokens) 
 
 To maximize this probability, model must build internal 
 representations that capture:
@@ -751,14 +791,14 @@ representations that capture:
 - Pragmatics (how context affects meaning)
 - World knowledge (facts about the world)</code></pre>
 
-            <h3 style="font-size:18px;">Deep Dive 2: The Attention Mechanism</h3>
-            <p>Attention is the core innovation that makes transformers work.</p>
+          <h3 style="font-size:18px;">Deep Dive 2: The Attention Mechanism</h3>
+          <p>Attention is the core innovation that makes transformers work.</p>
 
-            <p><strong>The Problem</strong>: How does a token "look at" other tokens to understand context?</p>
+          <p><strong>The Problem</strong>: How does a token "look at" other tokens to understand context?</p>
 
-            <p><strong>The Solution</strong>: Attention computes how relevant each previous token is.</p>
+          <p><strong>The Solution</strong>: Attention computes how relevant each previous token is.</p>
 
-            <pre><code>Sentence: "The cat sat on the mat"
+          <pre><code>Sentence: "The cat sat on the mat"
 Token: "mat"
 
 Attention scores (how much "mat" attends to each previous token):
@@ -772,8 +812,8 @@ mat:  0.10
 Interpretation: "mat" pays most attention to "the" (right before it) 
 and "on" (the preposition indicating location)</code></pre>
 
-            <p><strong>Visual: Self-Attention</strong></p>
-            <pre><code>Query: Current token asking "What should I pay attention to?"
+          <p><strong>Visual: Self-Attention</strong></p>
+          <pre><code>Query: Current token asking "What should I pay attention to?"
 Keys: All previous tokens saying "Here's what I am"
 Values: All previous tokens' actual information
 
@@ -789,30 +829,30 @@ Step 3: Weighted Sum of Values
 ───────────────────────────────
 output[i] = Σ attention[i,j] × Value[j]</code></pre>
 
-            <h3 style="font-size:18px;">Deep Dive 3: Tokenization Strategies</h3>
-            <p><strong>The Challenge</strong>: Convert text into tokens efficiently.</p>
+          <h3 style="font-size:18px;">Deep Dive 3: Tokenization Strategies</h3>
+          <p><strong>The Challenge</strong>: Convert text into tokens efficiently.</p>
 
-            <p><strong>Common Approaches</strong>:</p>
+          <p><strong>Common Approaches</strong>:</p>
 
-            <p><strong>1. Word-level</strong> (Simple but limited)</p>
-            <pre><code>"The cat sat" → ["The", "cat", "sat"]
+          <p><strong>1. Word-level</strong> (Simple but limited)</p>
+          <pre><code>"The cat sat" → ["The", "cat", "sat"]
 
 Problems:
 - Huge vocabulary (millions of words)
 - Unknown words → &lt;UNK&gt; token
 - No sharing between related words (run, running, runner)</code></pre>
 
-            <p><strong>2. Character-level</strong> (Flexible but inefficient)</p>
-            <pre><code>"The cat" → ["T", "h", "e", " ", "c", "a", "t"]
+          <p><strong>2. Character-level</strong> (Flexible but inefficient)</p>
+          <pre><code>"The cat" → ["T", "h", "e", " ", "c", "a", "t"]
 
 Problems:
 - Very long sequences
 - Model must learn to group characters into words
 - Computationally expensive</code></pre>
 
-            <p><strong>3. Subword (Best of both worlds)</strong></p>
-            <p>Most modern models use BPE (Byte-Pair Encoding) or variants:</p>
-            <pre><code>Vocabulary built from frequent subwords:
+          <p><strong>3. Subword (Best of both worlds)</strong></p>
+          <p>Most modern models use BPE (Byte-Pair Encoding) or variants:</p>
+          <pre><code>Vocabulary built from frequent subwords:
 ["the", "cat", "##s", "run", "##ning", "walk", "##ed"]
 
 "The cats are running" →
@@ -823,11 +863,11 @@ Benefits:
 - Can handle any word (even unseen ones)
 - Related words share tokens</code></pre>
 
-            <h3 style="font-size:18px;">Deep Dive 4: Scaling Laws</h3>
-            <p><strong>The Question</strong>: How do model performance, data size, and compute relate?</p>
+          <h3 style="font-size:18px;">Deep Dive 4: Scaling Laws</h3>
+          <p><strong>The Question</strong>: How do model performance, data size, and compute relate?</p>
 
-            <p><strong>Kaplan et al. (2020) - Neural Scaling Laws</strong>:</p>
-            <pre><code>Loss ∝ 1 / (N^α)
+          <p><strong>Kaplan et al. (2020) - Neural Scaling Laws</strong>:</p>
+          <pre><code>Loss ∝ 1 / (N^α)
 
 Where:
 - Loss = prediction error
@@ -837,20 +877,20 @@ Where:
 Double the parameters → 5% improvement
 10x parameters → 16% improvement</code></pre>
 
-            <p><strong>Chinchilla Scaling Laws (2022) - Better approach</strong>:</p>
-            <p>For compute-optimal training:</p>
-            <pre><code>Tokens ≈ 20 × Parameters
+          <p><strong>Chinchilla Scaling Laws (2022) - Better approach</strong>:</p>
+          <p>For compute-optimal training:</p>
+          <pre><code>Tokens ≈ 20 × Parameters
 
 Examples:
 - 1B parameters → train on 20B tokens
 - 10B parameters → train on 200B tokens
 - 100B parameters → train on 2T tokens</code></pre>
 
-            <h3 style="font-size:18px;">Deep Dive 5: Catastrophic Forgetting</h3>
-            <p><strong>The Problem</strong>: When fine-tuning, models can "forget" earlier knowledge.</p>
+          <h3 style="font-size:18px;">Deep Dive 5: Catastrophic Forgetting</h3>
+          <p><strong>The Problem</strong>: When fine-tuning, models can "forget" earlier knowledge.</p>
 
-            <p><strong>Example</strong>:</p>
-            <pre><code>Before fine-tuning:
+          <p><strong>Example</strong>:</p>
+          <pre><code>Before fine-tuning:
 Q: "What is the capital of France?"
 A: "Paris"
 
@@ -859,8 +899,8 @@ Q: "What is the capital of France?"
 A: "def capital(country): return cities[country]['capital']"
 [Model forgot facts, only knows code now!]</code></pre>
 
-            <p><strong>Why It Happens</strong>:</p>
-            <pre><code>Pretraining weights: W_pretrain
+          <p><strong>Why It Happens</strong>:</p>
+          <pre><code>Pretraining weights: W_pretrain
 Fine-tuning gradients: ΔW_finetune
 
 If learning rate too high:
@@ -869,49 +909,49 @@ W_new = W_pretrain + α × ΔW_finetune
 Large α → W_new very different from W_pretrain
 → Overwrites pretrained knowledge</code></pre>
 
-            <p><strong>Solutions</strong>:</p>
-            <p><strong>1. Lower Learning Rate</strong></p>
-            <pre><code>Pretraining:  α = 1e-4
+          <p><strong>Solutions</strong>:</p>
+          <p><strong>1. Lower Learning Rate</strong></p>
+          <pre><code>Pretraining:  α = 1e-4
 Midtraining:  α = 1e-5  (10x smaller)
 Fine-tuning:  α = 1e-6  (100x smaller)</code></pre>
 
-            <p><strong>2. Fewer Training Steps</strong><br>
+          <p><strong>2. Fewer Training Steps</strong><br>
             Don't overtrain on small datasets<br>
             1-3 epochs usually sufficient</p>
 
-            <p><strong>3. Layer Freezing</strong><br>
+          <p><strong>3. Layer Freezing</strong><br>
             Freeze early layers (keep general knowledge)<br>
             Fine-tune only late layers (adapt behavior)</p>
 
-            <p><strong>4. Regularization</strong></p>
-            <pre><code>Add penalty for diverging from original weights:
+          <p><strong>4. Regularization</strong></p>
+          <pre><code>Add penalty for diverging from original weights:
 Loss = Task_Loss + λ × ||W_new - W_pretrain||²</code></pre>
 
-            <h2 id="best-practices" style="font-size:20px;">Best Practices and Common Pitfalls</h2>
+          <h2 id="best-practices" style="font-size:20px;">Best Practices and Common Pitfalls</h2>
 
-            <h3 style="font-size:18px;">Best Practices</h3>
+          <h3 style="font-size:18px;">Best Practices</h3>
 
-            <p><strong>1. Data Quality > Data Quantity</strong> (especially for fine-tuning)</p>
-            <pre><code>❌ 1M mediocre examples
+          <p><strong>1. Data Quality > Data Quantity</strong> (especially for fine-tuning)</p>
+          <pre><code>❌ 1M mediocre examples
 ✅ 10K excellent examples
 
 Why? Model learns patterns. Bad patterns = bad behavior.</code></pre>
 
-            <p><strong>2. Start Small, Scale Up</strong></p>
-            <pre><code>Process:
+          <p><strong>2. Start Small, Scale Up</strong></p>
+          <pre><code>Process:
 1. Train 125M model (cheap, fast)
 2. Verify approach works
 3. Scale to 1B, then 7B, then larger
 4. Don't train 100B as first experiment!</code></pre>
 
-            <p><strong>3. Monitor Validation Loss</strong></p>
-            <pre><code>Training loss ↓ ↓ ↓  (always decreases)
+          <p><strong>3. Monitor Validation Loss</strong></p>
+          <pre><code>Training loss ↓ ↓ ↓  (always decreases)
 Validation loss ↓ ↓ ↑ ↑  (starts increasing = overfitting!)
                     ↑
               Stop here!</code></pre>
 
-            <p><strong>4. Use Mixed Precision Training</strong></p>
-            <pre><code>Float32: 32 bits per number (precise but slow)
+          <p><strong>4. Use Mixed Precision Training</strong></p>
+          <pre><code>Float32: 32 bits per number (precise but slow)
 Bfloat16: 16 bits per number (fast, ~2x speedup)
 
 Use bfloat16 for forward/backward
@@ -919,14 +959,14 @@ Use float32 for optimizer updates
 
 Result: 2x faster, 50% memory savings, minimal quality loss</code></pre>
 
-            <p><strong>5. Gradient Checkpointing for Large Models</strong></p>
-            <pre><code>Normal: Store all activations (high memory)
+          <p><strong>5. Gradient Checkpointing for Large Models</strong></p>
+          <pre><code>Normal: Store all activations (high memory)
 Checkpointing: Recompute activations as needed (low memory)
 
 Trade-off: 20-30% slower, but can train 2-3x larger models</code></pre>
 
-            <p><strong>6. Curriculum Learning</strong></p>
-            <pre><code>Start with easier examples, gradually increase difficulty
+          <p><strong>6. Curriculum Learning</strong></p>
+          <pre><code>Start with easier examples, gradually increase difficulty
 
 Example for math:
 Epoch 1: 1+1, 2+2, 3+3  (simple addition)
@@ -936,10 +976,10 @@ Epoch 4: Multi-step problems
 
 Model learns progressively, like human education.</code></pre>
 
-            <h3 style="font-size:18px;">Common Pitfalls</h3>
+          <h3 style="font-size:18px;">Common Pitfalls</h3>
 
-            <p><strong>Pitfall 1: Learning Rate Too High</strong></p>
-            <pre><code>Symptom: Loss explodes (NaN), model outputs gibberish
+          <p><strong>Pitfall 1: Learning Rate Too High</strong></p>
+          <pre><code>Symptom: Loss explodes (NaN), model outputs gibberish
 
 Example:
 Step 100: Loss = 2.5
@@ -948,13 +988,13 @@ Step 102: Loss = NaN
 
 Solution: Lower learning rate by 10x, use warmup</code></pre>
 
-            <p><strong>Pitfall 2: Not Enough Data for Task</strong><br>
+          <p><strong>Pitfall 2: Not Enough Data for Task</strong><br>
             Fine-tuning medical advice with 100 examples → poor results<br>
             Need thousands of examples per task type<br>
             Medical QA, diagnosis, treatment each need separate examples</p>
 
-            <p><strong>Pitfall 3: Overfitting on Small Datasets</strong></p>
-            <pre><code>Training loss: 0.001 (perfect!)
+          <p><strong>Pitfall 3: Overfitting on Small Datasets</strong></p>
+          <pre><code>Training loss: 0.001 (perfect!)
 Validation loss: 3.2 (terrible!)
 
 Model memorized training data, can't generalize.
@@ -965,15 +1005,15 @@ Solutions:
 - Stop training earlier
 - Data augmentation</code></pre>
 
-            <p><strong>Pitfall 4: Not Masking Losses Properly</strong></p>
-            <pre><code>❌ Training on user inputs too:
+          <p><strong>Pitfall 4: Not Masking Losses Properly</strong></p>
+          <pre><code>❌ Training on user inputs too:
 Model learns to generate questions (wrong!)
 
 ✅ Mask loss on user inputs:
 Model learns to generate answers (correct!)</code></pre>
 
-            <p><strong>Pitfall 5: Ignoring Data Balance</strong></p>
-            <pre><code>Fine-tuning data:
+          <p><strong>Pitfall 5: Ignoring Data Balance</strong></p>
+          <pre><code>Fine-tuning data:
 - 90% simple questions
 - 10% complex reasoning
 
@@ -981,8 +1021,8 @@ Result: Model great at simple, terrible at complex
 
 Solution: Balance or oversample rare categories</code></pre>
 
-            <p><strong>Pitfall 6: Not Testing Edge Cases</strong></p>
-            <pre><code>Model works great on:
+          <p><strong>Pitfall 6: Not Testing Edge Cases</strong></p>
+          <pre><code>Model works great on:
 "What is 2+2?" → "4"
 
 But fails on:
@@ -991,32 +1031,32 @@ But fails on:
 
 Test many phrasings, formats, edge cases!</code></pre>
 
-            <h3 style="font-size:18px;">Evaluation Best Practices</h3>
+          <h3 style="font-size:18px;">Evaluation Best Practices</h3>
 
-            <p><strong>1. Multiple Metrics</strong></p>
-            <pre><code>Don't rely on single metric:
+          <p><strong>1. Multiple Metrics</strong></p>
+          <pre><code>Don't rely on single metric:
 - Perplexity (lower = better compression)
 - BLEU/ROUGE (text similarity)
 - Human evaluation (quality, safety)
 - Task-specific (accuracy, F1)</code></pre>
 
-            <p><strong>2. Held-Out Test Set</strong></p>
-            <pre><code>Data Split:
+          <p><strong>2. Held-Out Test Set</strong></p>
+          <pre><code>Data Split:
 - Training: 80%
 - Validation: 10% (for tuning)
 - Test: 10% (never seen, final evaluation)
 
 Never tune on test set!</code></pre>
 
-            <p><strong>3. A/B Testing</strong></p>
-            <pre><code>Deploy both models to small % of users:
+          <p><strong>3. A/B Testing</strong></p>
+          <pre><code>Deploy both models to small % of users:
 - Model A: 5% of traffic
 - Model B: 5% of traffic
 
 Collect real user feedback, choose winner</code></pre>
 
-            <p><strong>4. Red Teaming</strong></p>
-            <pre><code>Adversarial testing:
+          <p><strong>4. Red Teaming</strong></p>
+          <pre><code>Adversarial testing:
 - Try to make model say harmful things
 - Test edge cases
 - Find failure modes
@@ -1024,82 +1064,101 @@ Collect real user feedback, choose winner</code></pre>
 
 Iterate until robust.</code></pre>
 
-            <h2 id="conclusion" style="font-size:20px;">Conclusion</h2>
+          <h2 id="conclusion" style="font-size:20px;">Conclusion</h2>
 
-            <p>Training a large language model is a journey through three distinct stages, each building on the last:</p>
+          <p>Training a large language model is a journey through three distinct stages, each building on the last:</p>
 
-            <p><strong>Stage 1: Pretraining</strong> - The model learns the fundamentals of language from vast amounts of text. This is the most expensive and time-consuming stage, but it creates the foundation for everything else. The model emerges with broad knowledge but limited practical application.</p>
+          <p><strong>Stage 1: Pretraining</strong> - The model learns the fundamentals of language from vast amounts of
+            text. This is the most expensive and time-consuming stage, but it creates the foundation for everything
+            else. The model emerges with broad knowledge but limited practical application.</p>
 
-            <p><strong>Stage 2: Midtraining</strong> - The model learns structure and format. It discovers how to have conversations, use tools, and follow specific interaction patterns. This bridges the gap between raw language understanding and practical utility.</p>
+          <p><strong>Stage 2: Midtraining</strong> - The model learns structure and format. It discovers how to have
+            conversations, use tools, and follow specific interaction patterns. This bridges the gap between raw
+            language understanding and practical utility.</p>
 
-            <p><strong>Stage 3: Fine-tuning</strong> - The model learns alignment and behavior. Through carefully curated examples or preference learning, it becomes helpful, harmless, and honest. This is the cheapest stage but perhaps the most important for creating a production-ready assistant.</p>
+          <p><strong>Stage 3: Fine-tuning</strong> - The model learns alignment and behavior. Through carefully curated
+            examples or preference learning, it becomes helpful, harmless, and honest. This is the cheapest stage but
+            perhaps the most important for creating a production-ready assistant.</p>
 
-            <h3 style="font-size:18px;">Key Takeaways</h3>
-            <ol>
-              <li><strong>Each stage serves a distinct purpose</strong> - Don't try to teach everything at once</li>
-              <li><strong>Data quality matters more as you progress</strong> - Pretraining can use messy web text, but fine-tuning needs perfection</li>
-              <li><strong>Learning rates should decrease</strong> - Start high for pretraining, end very low for fine-tuning</li>
-              <li><strong>Loss masking is critical</strong> - Only train on what you want the model to generate</li>
-              <li><strong>Evaluation is continuous</strong> - Test at every stage, iterate based on failures</li>
-              <li><strong>The field is rapidly evolving</strong> - Today's best practices may be tomorrow's antipatterns</li>
-            </ol>
+          <h3 style="font-size:18px;">Key Takeaways</h3>
+          <ol>
+            <li><strong>Each stage serves a distinct purpose</strong> - Don't try to teach everything at once</li>
+            <li><strong>Data quality matters more as you progress</strong> - Pretraining can use messy web text, but
+              fine-tuning needs perfection</li>
+            <li><strong>Learning rates should decrease</strong> - Start high for pretraining, end very low for
+              fine-tuning</li>
+            <li><strong>Loss masking is critical</strong> - Only train on what you want the model to generate</li>
+            <li><strong>Evaluation is continuous</strong> - Test at every stage, iterate based on failures</li>
+            <li><strong>The field is rapidly evolving</strong> - Today's best practices may be tomorrow's antipatterns
+            </li>
+          </ol>
 
-            <h3 style="font-size:18px;">Resources for Further Learning</h3>
+          <h3 style="font-size:18px;">Resources for Further Learning</h3>
 
-            <p><strong>Papers</strong>:</p>
-            <ul>
-              <li>"Attention is All You Need" (Transformer architecture)</li>
-              <li>"Language Models are Few-Shot Learners" (GPT-3)</li>
-              <li>"Training Compute-Optimal Large Language Models" (Chinchilla)</li>
-              <li>"Constitutional AI" (Alignment methods)</li>
-            </ul>
+          <p><strong>Papers</strong>:</p>
+          <ul>
+            <li>"Attention is All You Need" (Transformer architecture)</li>
+            <li>"Language Models are Few-Shot Learners" (GPT-3)</li>
+            <li>"Training Compute-Optimal Large Language Models" (Chinchilla)</li>
+            <li>"Constitutional AI" (Alignment methods)</li>
+          </ul>
 
-            <p><strong>Courses</strong>:</p>
-            <ul>
-              <li>Stanford CS224N (NLP with Deep Learning)</li>
-              <li>Fast.ai Practical Deep Learning</li>
-              <li>Hugging Face NLP Course</li>
-            </ul>
+          <p><strong>Courses</strong>:</p>
+          <ul>
+            <li>Stanford CS224N (NLP with Deep Learning)</li>
+            <li>Fast.ai Practical Deep Learning</li>
+            <li>Hugging Face NLP Course</li>
+          </ul>
 
-            <p><strong>Tools</strong>:</p>
-            <ul>
-              <li>Hugging Face Transformers</li>
-              <li>PyTorch / JAX / TensorFlow</li>
-              <li>Weights & Biases (experiment tracking)</li>
-              <li>DeepSpeed / Megatron (distributed training)</li>
-            </ul>
+          <p><strong>Tools</strong>:</p>
+          <ul>
+            <li>Hugging Face Transformers</li>
+            <li>PyTorch / JAX / TensorFlow</li>
+            <li>Weights & Biases (experiment tracking)</li>
+            <li>DeepSpeed / Megatron (distributed training)</li>
+          </ul>
 
-            <h3 style="font-size:18px;">Final Thoughts</h3>
+          <h3 style="font-size:18px;">Final Thoughts</h3>
 
-            <p>The three-stage training pipeline isn't just a technical process—it's a philosophy for teaching machines. We start with breadth (pretraining), add structure (midtraining), and refine behavior (fine-tuning). Each stage makes the model more useful, more reliable, and more aligned with human values.</p>
+          <p>The three-stage training pipeline isn't just a technical process—it's a philosophy for teaching machines.
+            We start with breadth (pretraining), add structure (midtraining), and refine behavior (fine-tuning). Each
+            stage makes the model more useful, more reliable, and more aligned with human values.</p>
 
-            <p>As you embark on your own LLM training journey, remember: start small, validate your approach, then scale. The most expensive mistake is training a massive model on the wrong data or with the wrong hyperparameters.</p>
+          <p>As you embark on your own LLM training journey, remember: start small, validate your approach, then scale.
+            The most expensive mistake is training a massive model on the wrong data or with the wrong hyperparameters.
+          </p>
 
-            <p>The future of AI assistants will be built by those who understand not just how to train models, but why each stage matters and how they work together to create intelligence that's both powerful and safe.</p>
+          <p>The future of AI assistants will be built by those who understand not just how to train models, but why
+            each stage matters and how they work together to create intelligence that's both powerful and safe.</p>
 
-            <p><strong>Happy training! 🚀</strong></p>
+          <p><strong>Happy training! 🚀</strong></p>
 
-            <hr style="margin: 40px 0;">
+          <hr style="margin: 40px 0;">
 
-            <p style="font-style: italic; color: #666; font-size: 14px;"><em>This guide was written to be accessible to beginners while providing technical depth for practitioners. Whether you're just starting or scaling to production, I hope this helps you understand the beautiful complexity of modern language model training.</em></p>
+          <p style="font-style: italic; color: #666; font-size: 14px;"><em>This guide was written to be accessible to
+              beginners while providing technical depth for practitioners. Whether you're just starting or scaling to
+              production, I hope this helps you understand the beautiful complexity of modern language model
+              training.</em></p>
 
-          </div>
-        </article>
-      </div>
-    </main>
+        </div>
+      </article>
+    </div>
+  </main>
 
-    <footer class="site-footer">
-      <div class="wrapper">
-        <div class="footer-col-wrapper">
-          <div class="footer-col footer-col-1">
-            <ul class="contact-list">
-              <li><a href="mailto:hwagh@mtu.edu">hwagh@mtu.edu</a></li>
-            </ul>
-          </div>
+  <footer class="site-footer">
+    <div class="wrapper">
+      <div class="footer-col-wrapper">
+        <div class="footer-col footer-col-1">
+          <ul class="contact-list">
+            <li><a href="mailto:hwagh@mtu.edu">hwagh@mtu.edu</a></li>
+          </ul>
         </div>
       </div>
-    </footer>
+    </div>
+  </footer>
 
-  </body>
+  <script src="../js/dark-mode.js"></script>
+  <script src="../js/nav-text-switcher.js"></script>
+</body>
 
 </html>

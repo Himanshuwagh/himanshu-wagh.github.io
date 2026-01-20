@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,207 +12,250 @@
   <link rel="stylesheet" href="../main.css">
   <title>Understanding NanoChat Model Parameters | Himanshu Wagh</title>
 
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <header class="site-header" role="banner">
-  <div class="wrapper">
-    <a class="site-title" href="https://himanshuwagh.github.io/index.html" style="font-size:30px;font-family: fantasy-copperplate;">Himanshu Wagh</a>
+  <header class="site-header" role="banner">
+    <div class="wrapper">
+      <a class="site-title" href="https://himanshuwagh.github.io/index.html"
+        style="font-size:30px;font-family: fantasy-copperplate;">Himanshu Wagh</a>
       <nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
         <label for="nav-trigger">
           <span class="menu-icon">
             <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
-              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
-              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+              <path fill="#424242"
+                d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" />
+              <path fill="#424242"
+                d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" />
+              <path fill="#424242"
+                d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" />
             </svg>
           </span>
         </label>
         <div class="trigger">
+
           <a class="page-link" href="../projects/projects.html">Projects</a>
-          <a class="page-link" href="../books/books.html">Blogs</a>
+          <a class="page-link" href="../blogs-main/blogs.html">Blogs</a>
           <a class="page-link" href="../list-100/list-100.html">List 100</a>
           <a class="page-link" href="../travel/travel.html">Travel</a>
+
+          <!-- Theme Toggle in Navbar -->
+          <button class="theme-toggle-nav" id="theme-toggle-nav" aria-label="Toggle dark mode">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" />
+              <path
+                d="M12 1V3M12 21V23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M1 12H3M21 12H23M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
         </div>
       </nav>
-  </div>
-</header>
+    </div>
+  </header>
 
-    <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <article class="post">
-          <header class="post-header">
-            <h1 class="post-title" style="font-size:25px;">Inside NanoChat: How 561 Million Parameters Come Together in a Transformer</h1>
-          </header>
+  <main class="page-content" aria-label="Content">
+    <div class="wrapper">
+      <article class="post">
+        <header class="post-header">
+          <h1 class="post-title" style="font-size:25px;">Inside NanoChat: How 561 Million Parameters Come Together in a
+            Transformer</h1>
+        </header>
 
-          <div class="post-content">
-            <h2 style="font-size:20px;">Introduction</h2>
-            <p>Modern language models are defined by a single number — their parameter count.
-              Yet, behind that number lies a web of architectural design decisions that shape how the model learns, scales, and performs.
-              In this post, we’ll take apart NanoChat d20, a compact transformer model with ≈561 M parameters, and understand exactly where each parameter comes from — from token embeddings to feed-forward layers — and how this design fits within modern scaling laws.</p>
-            
-            <p>In large-language models (LLMs), the number of trainable parameters is more than just a statistic — it captures how much capacity the model has, how much compute and data you'll need, and what kind of tasks it can handle. In this post, we take a detailed look at the configuration and parameter-count of the NanoChat d20 model (≈561 M parameters) and explain exactly how that number is calculated, why the architectural choices were made, and how it connects to the amount of training data required. Whether you're a researcher building your own transformer from scratch or a trained-engineer tuning an off-the-shelf model, understanding these mechanics gives you a clearer view of the trade-offs involved.</p>
+        <div class="post-content">
+          <h2 style="font-size:20px;">Introduction</h2>
+          <p>Modern language models are defined by a single number — their parameter count.
+            Yet, behind that number lies a web of architectural design decisions that shape how the model learns,
+            scales, and performs.
+            In this post, we’ll take apart NanoChat d20, a compact transformer model with ≈561 M parameters, and
+            understand exactly where each parameter comes from — from token embeddings to feed-forward layers — and how
+            this design fits within modern scaling laws.</p>
 
-            <h2 style="font-size:20px;">Model Specifications</h2>
-            <p>The d20 model is defined by these configuration parameters:</p>
-            <table>
-              <thead>
-                <tr>
-                  <th>Parameter</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Vocab size</td>
-                  <td>65,536</td>
-                </tr>
-                <tr>
-                  <td>Number of layers</td>
-                  <td>20</td>
-                </tr>
-                <tr>
-                  <td>Model dimension (hidden size)</td>
-                  <td>1,280</td>
-                </tr>
-                <tr>
-                  <td>Number of attention heads</td>
-                  <td>10</td>
-                </tr>
-                <tr>
-                  <td>KV heads</td>
-                  <td>10</td>
-                </tr>
-              </tbody>
-            </table>
-            <p>From these specs, we can calculate the exact parameter count.</p>
+          <p>In large-language models (LLMs), the number of trainable parameters is more than just a statistic — it
+            captures how much capacity the model has, how much compute and data you'll need, and what kind of tasks it
+            can handle. In this post, we take a detailed look at the configuration and parameter-count of the NanoChat
+            d20 model (≈561 M parameters) and explain exactly how that number is calculated, why the architectural
+            choices were made, and how it connects to the amount of training data required. Whether you're a researcher
+            building your own transformer from scratch or a trained-engineer tuning an off-the-shelf model,
+            understanding these mechanics gives you a clearer view of the trade-offs involved.</p>
 
-            <div style="text-align: center; margin: 20px 0;">
-              <img src="../img/download (1).png" alt="NanoChat Model Architecture" style="max-width: 100%; height: 250px;">
-            </div>
+          <h2 style="font-size:20px;">Model Specifications</h2>
+          <p>The d20 model is defined by these configuration parameters:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Vocab size</td>
+                <td>65,536</td>
+              </tr>
+              <tr>
+                <td>Number of layers</td>
+                <td>20</td>
+              </tr>
+              <tr>
+                <td>Model dimension (hidden size)</td>
+                <td>1,280</td>
+              </tr>
+              <tr>
+                <td>Number of attention heads</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>KV heads</td>
+                <td>10</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>From these specs, we can calculate the exact parameter count.</p>
 
-            <h2 style="font-size:20px;">Parameter Calculation Breakdown</h2>
+          <div style="text-align: center; margin: 20px 0;">
+            <img src="../img/download (1).png" alt="NanoChat Model Architecture"
+              style="max-width: 100%; height: 250px;">
+          </div>
 
-            <h3 style="font-size:18px;">1. Embedding Layer: ~83.9M Parameters</h3>
-            <p>The embedding layer maps each of the vocab tokens into a dense vector of dimension 1,280. Given a vocabulary of 65,536 tokens, we compute:</p>
-            <pre><code>embedding_params = vocab_size × model_dim  
+          <h2 style="font-size:20px;">Parameter Calculation Breakdown</h2>
+
+          <h3 style="font-size:18px;">1. Embedding Layer: ~83.9M Parameters</h3>
+          <p>The embedding layer maps each of the vocab tokens into a dense vector of dimension 1,280. Given a
+            vocabulary of 65,536 tokens, we compute:</p>
+          <pre><code>embedding_params = vocab_size × model_dim  
                   = 65,536 × 1,280  
                   = 83,886,080</code></pre>
-            <p>This lookup table is essentially a matrix of size (65,536 × 1,280). One subtlety: many models tie the input-token embedding matrix with the output-projection (LM head) matrix, which would reduce total parameters. In the NanoChat d20 design, the output head is separate, so we account for both layers independently.</p>
-            <p>Why vocab size 65,536? This size (2¹⁶) gives a large enough token-set to handle rich sub-word encoding (e.g., Byte-Pair Encoding or SentencePiece) while keeping embedding lookup cost manageable. A larger vocab increases memory and parameters; smaller vocab may increase sequence length or reduce expressivity.</p>
+          <p>This lookup table is essentially a matrix of size (65,536 × 1,280). One subtlety: many models tie the
+            input-token embedding matrix with the output-projection (LM head) matrix, which would reduce total
+            parameters. In the NanoChat d20 design, the output head is separate, so we account for both layers
+            independently.</p>
+          <p>Why vocab size 65,536? This size (2¹⁶) gives a large enough token-set to handle rich sub-word encoding
+            (e.g., Byte-Pair Encoding or SentencePiece) while keeping embedding lookup cost manageable. A larger vocab
+            increases memory and parameters; smaller vocab may increase sequence length or reduce expressivity.</p>
 
-            <h3 style="font-size:18px;">2. Attention Layers: ~131M Parameters</h3>
-            <p>Each transformer layer contains self-attention with four projection matrices:</p>
-            <p><strong>Per attention layer:</strong></p>
-            <pre><code>Query projection:    1,280 × 1,280 = 1,638,400
+          <h3 style="font-size:18px;">2. Attention Layers: ~131M Parameters</h3>
+          <p>Each transformer layer contains self-attention with four projection matrices:</p>
+          <p><strong>Per attention layer:</strong></p>
+          <pre><code>Query projection:    1,280 × 1,280 = 1,638,400
 Key projection:      1,280 × 1,280 = 1,638,400
 Value projection:    1,280 × 1,280 = 1,638,400
 Output projection:   1,280 × 1,280 = 1,638,400
                                       ──────────
 Total per layer:                      6,553,600</code></pre>
-            <p><strong>Across all 20 layers:</strong></p>
-            <pre><code>6,553,600 × 20 = 131,072,000 parameters</code></pre>
+          <p><strong>Across all 20 layers:</strong></p>
+          <pre><code>6,553,600 × 20 = 131,072,000 parameters</code></pre>
 
-            <h3 style="font-size:18px;">3. Feed-Forward Networks: ~262M Parameters</h3>
-            <p>Each layer has a 2-layer MLP with a 4× expansion ratio:</p>
-            <p><strong>Per feed-forward layer:</strong></p>
-            <pre><code>Dense 1:  1,280 × 5,120 = 6,553,600
+          <h3 style="font-size:18px;">3. Feed-Forward Networks: ~262M Parameters</h3>
+          <p>Each layer has a 2-layer MLP with a 4× expansion ratio:</p>
+          <p><strong>Per feed-forward layer:</strong></p>
+          <pre><code>Dense 1:  1,280 × 5,120 = 6,553,600
 Dense 2:  5,120 × 1,280 = 6,553,600
                           ──────────
 Total per layer:         13,107,200</code></pre>
-            <p><strong>Across all 20 layers:</strong></p>
-            <pre><code>13,107,200 × 20 = 262,144,000 parameters</code></pre>
+          <p><strong>Across all 20 layers:</strong></p>
+          <pre><code>13,107,200 × 20 = 262,144,000 parameters</code></pre>
 
-            <h3 style="font-size:18px;">4. Layer Normalization: ~102K Parameters</h3>
-            <p>Each layer has 2 layer norm operations (before attention and before FFN):</p>
-            <pre><code>Per layer norm = scale (1,280) + bias (1,280) = 2,560
+          <h3 style="font-size:18px;">4. Layer Normalization: ~102K Parameters</h3>
+          <p>Each layer has 2 layer norm operations (before attention and before FFN):</p>
+          <pre><code>Per layer norm = scale (1,280) + bias (1,280) = 2,560
 Per layer = 2 × 2,560 = 5,120
 Across 20 layers = 5,120 × 20 = 102,400 parameters</code></pre>
 
-            <h3 style="font-size:18px;">5. Output/LM Head: ~83.9M Parameters</h3>
-            <p>The final layer projects from model_dim back to vocab_size for next-token prediction:</p>
-            <pre><code>Output head = model_dim × vocab_size
+          <h3 style="font-size:18px;">5. Output/LM Head: ~83.9M Parameters</h3>
+          <p>The final layer projects from model_dim back to vocab_size for next-token prediction:</p>
+          <pre><code>Output head = model_dim × vocab_size
             = 1,280 × 65,536
             = 83,886,080 parameters</code></pre>
 
-            <h2 style="font-size:20px;">Total Parameter Count</h2>
-            <pre><code>Embedding layer:      83,886,080
+          <h2 style="font-size:20px;">Total Parameter Count</h2>
+          <pre><code>Embedding layer:      83,886,080
 Attention layers:    131,072,000
 Feed-forward layers: 262,144,000
 Layer normalization:    102,400
 Output/LM head:       83,886,080
                      ──────────────
 Total:        ≈ 561,000,000 parameters</code></pre>
-            <p><strong>Official count: 560,988,160 parameters</strong> (minor differences due to rounding and bias terms)</p>
+          <p><strong>Official count: 560,988,160 parameters</strong> (minor differences due to rounding and bias terms)
+          </p>
 
-            <div style="text-align: center; margin: 20px 0;">
-              <img src="../img/download.png" alt="NanoChat Parameter Distribution" style="max-width: 100%; height: 300px;">
-            </div>
+          <div style="text-align: center; margin: 20px 0;">
+            <img src="../img/download.png" alt="NanoChat Parameter Distribution"
+              style="max-width: 100%; height: 300px;">
+          </div>
 
-            <h2 style="font-size:20px;">Architectural Design Choices</h2>
-            <p>These specs weren't arbitrary. Here's the reasoning:</p>
-            <p><strong>Number of Layers (20):</strong> More layers enable deeper reasoning and pattern recognition at different abstraction levels.</p>
-            <p><strong>Model Dimension (1,280):</strong> Wider layers mean more parameters per layer, increasing model capacity.</p>
-            <p><strong>Attention Heads (10):</strong> Distributed attention across multiple representation subspaces.</p>
-            <pre><code>Head dimension = model_dim / num_heads = 1,280 / 10 = 128 dimensions per head</code></pre>
-            <p>128 dimensions per head is the industry standard (used in GPT, BERT, etc.).</p>
+          <h2 style="font-size:20px;">Architectural Design Choices</h2>
+          <p>These specs weren't arbitrary. Here's the reasoning:</p>
+          <p><strong>Number of Layers (20):</strong> More layers enable deeper reasoning and pattern recognition at
+            different abstraction levels.</p>
+          <p><strong>Model Dimension (1,280):</strong> Wider layers mean more parameters per layer, increasing model
+            capacity.</p>
+          <p><strong>Attention Heads (10):</strong> Distributed attention across multiple representation subspaces.</p>
+          <pre><code>Head dimension = model_dim / num_heads = 1,280 / 10 = 128 dimensions per head</code></pre>
+          <p>128 dimensions per head is the industry standard (used in GPT, BERT, etc.).</p>
 
-            <h2 style="font-size:20px;">The Chinchilla Scaling Law</h2>
-            <p>DeepMind's Chinchilla paper showed that for compute-optimal performance, the total number of training tokens should be about 20 × the number of parameters.</p>
-            <p>For NanoChat:</p>
-            <pre><code>tokens = 20 × 561M ≈ 11.2 B</code></pre>
-            <p>That's roughly 40–50 GB of cleaned text (depending on compression).</p>
-            <p><strong>Too few tokens</strong> → underfit model (memorises training data).<br>
-            <strong>Too many tokens</strong> → waste of compute (no extra accuracy).</p>
-            <p>This ratio provides a practical rule for balancing training cost and dataset size.</p>
+          <h2 style="font-size:20px;">The Chinchilla Scaling Law</h2>
+          <p>DeepMind's Chinchilla paper showed that for compute-optimal performance, the total number of training
+            tokens should be about 20 × the number of parameters.</p>
+          <p>For NanoChat:</p>
+          <pre><code>tokens = 20 × 561M ≈ 11.2 B</code></pre>
+          <p>That's roughly 40–50 GB of cleaned text (depending on compression).</p>
+          <p><strong>Too few tokens</strong> → underfit model (memorises training data).<br>
+            <strong>Too many tokens</strong> → waste of compute (no extra accuracy).
+          </p>
+          <p>This ratio provides a practical rule for balancing training cost and dataset size.</p>
 
-            <h2 style="font-size:20px;">Memory Footprint</h2>
-            <p>Memory footprint = parameters × bytes per param.</p>
-            <p>Example for FP32, FP16, quantized:</p>
-            <pre><code>Memory Estimate
+          <h2 style="font-size:20px;">Memory Footprint</h2>
+          <p>Memory footprint = parameters × bytes per param.</p>
+          <p>Example for FP32, FP16, quantized:</p>
+          <pre><code>Memory Estimate
 
 561M × 4 bytes (FP32) = 2.24 GB
 561M × 2 bytes (FP16) = 1.12 GB
 561M × 1 byte (INT8) = 0.56 GB</code></pre>
-            <p>So NanoChat can easily fit on a single consumer GPU (like an RTX 3090 24 GB) with room for batch processing.</p>
+          <p>So NanoChat can easily fit on a single consumer GPU (like an RTX 3090 24 GB) with room for batch
+            processing.</p>
 
-            <h3 style="font-size:18px;">Model Comparison</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>Model</th>
-                  <th>Params</th>
-                  <th>Memory (FP16)</th>
-                  <th>Optimal Tokens (B)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>NanoChat d20</td>
-                  <td>0.56 B</td>
-                  <td>1.1 GB</td>
-                  <td>11 B</td>
-                </tr>
-                <tr>
-                  <td>GPT-2 Medium</td>
-                  <td>0.35 B</td>
-                  <td>0.7 GB</td>
-                  <td>7 B</td>
-                </tr>
-                <tr>
-                  <td>Llama-2-7B</td>
-                  <td>7 B</td>
-                  <td>14 GB</td>
-                  <td>140 B</td>
-                </tr>
-              </tbody>
-            </table>
+          <h3 style="font-size:18px;">Model Comparison</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Params</th>
+                <th>Memory (FP16)</th>
+                <th>Optimal Tokens (B)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>NanoChat d20</td>
+                <td>0.56 B</td>
+                <td>1.1 GB</td>
+                <td>11 B</td>
+              </tr>
+              <tr>
+                <td>GPT-2 Medium</td>
+                <td>0.35 B</td>
+                <td>0.7 GB</td>
+                <td>7 B</td>
+              </tr>
+              <tr>
+                <td>Llama-2-7B</td>
+                <td>7 B</td>
+                <td>14 GB</td>
+                <td>140 B</td>
+              </tr>
+            </tbody>
+          </table>
 
-            <h2 style="font-size:20px;">From Parameters to Training Data</h2>
-            <p>This determines the dataset size:</p>
-            <pre><code>Assuming 4.8 characters per token:
+          <h2 style="font-size:20px;">From Parameters to Training Data</h2>
+          <p>This determines the dataset size:</p>
+          <pre><code>Assuming 4.8 characters per token:
 Total characters = 11.2B tokens × 4.8 = 53.76B characters
 
 At 250M characters per shard:
@@ -220,37 +263,40 @@ Shards needed = 53.76B ÷ 250M ≈ 215 shards → rounded to 240 shards
 
 Total disk space = 240 shards × 100MB = ~24GB</code></pre>
 
-            <h2 style="font-size:20px;">Key Takeaways</h2>
-            <ol>
-              <li><strong>Parameters emerge from architecture choices</strong> — We design the specs, then calculate parameters</li>
-              <li><strong>Standard ratios exist</strong> — 10 attention heads with 128 dims per head is optimal</li>
-              <li><strong>Scaling is predictable</strong> — Chinchilla law connects parameters to training data</li>
-              <li><strong>Every component contributes</strong> — Embeddings, attention, and FFN layers are all significant</li>
-            </ol>
+          <h2 style="font-size:20px;">Key Takeaways</h2>
+          <ol>
+            <li><strong>Parameters emerge from architecture choices</strong> — We design the specs, then calculate
+              parameters</li>
+            <li><strong>Standard ratios exist</strong> — 10 attention heads with 128 dims per head is optimal</li>
+            <li><strong>Scaling is predictable</strong> — Chinchilla law connects parameters to training data</li>
+            <li><strong>Every component contributes</strong> — Embeddings, attention, and FFN layers are all significant
+            </li>
+          </ol>
 
-            <h2 style="font-size:20px;">The Full Pipeline</h2>
-            <pre><code>Architecture Specs → Calculate Parameters → Apply Chinchilla Law → Determine Data Needs
+          <h2 style="font-size:20px;">The Full Pipeline</h2>
+          <pre><code>Architecture Specs → Calculate Parameters → Apply Chinchilla Law → Determine Data Needs
     (20, 1280)    →    (561M params)    →   (11.2B tokens)     →  (240 shards, 24GB)</code></pre>
-            <p>This systematic approach ensures the model is trained with optimal compute allocation—not underfitting from too little data, nor wasting compute on excess data.</p>
-          </div>
-        </article>
-      </div>
-    </main>
+          <p>This systematic approach ensures the model is trained with optimal compute allocation—not underfitting from
+            too little data, nor wasting compute on excess data.</p>
+        </div>
+      </article>
+    </div>
+  </main>
 
-    <footer class="site-footer">
-      <div class="wrapper">
-        <div class="footer-col-wrapper">
-          <div class="footer-col footer-col-1">
-            <ul class="contact-list">
-              <li><a href="mailto:hwagh@mtu.edu">hwagh@mtu.edu</a></li>
-            </ul>
-          </div>
+  <footer class="site-footer">
+    <div class="wrapper">
+      <div class="footer-col-wrapper">
+        <div class="footer-col footer-col-1">
+          <ul class="contact-list">
+            <li><a href="mailto:hwagh@mtu.edu">hwagh@mtu.edu</a></li>
+          </ul>
         </div>
       </div>
-    </footer>
+    </div>
+  </footer>
 
-  </body>
+  <script src="../js/dark-mode.js"></script>
+  <script src="../js/nav-text-switcher.js"></script>
+</body>
 
 </html>
-
-

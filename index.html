@@ -21,11 +21,13 @@
 </head>
 
 <body>
+    <script src="assets/js/dark-mode.js"></script>
+
     <header class="site-header" role="banner"
-        style="position: fixed; top: 0; left: 0; right: 0; background-color: rgba(245, 246, 239, 0.95); backdrop-filter: blur(1px); z-index: 1000; border-bottom: 1px solid #ffffff; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+        style="position: fixed; top: 0; left: 0; right: 0; backdrop-filter: blur(1px); z-index: 1000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
         <div class="wrapper">
             <a class="site-title" href="https://himanshuwagh.github.io/"
-                style="font-size:30px;font-family: fantasy-copperplate; color: #000000;">Himanshu Wagh</a>
+                style="font-size:30px;font-family: fantasy-copperplate;">Himanshu Wagh</a>
             <nav class="site-nav">
                 <input type="checkbox" id="nav-trigger" class="nav-trigger" />
                 <label for="nav-trigger">
@@ -56,6 +58,21 @@
                             color: 007acc !important;
                         }
                     </style>
+
+                    <!-- Theme Toggle in Navbar -->
+                    <button class="theme-toggle-nav" id="theme-toggle-nav" aria-label="Toggle dark mode">
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" />
+                            <path
+                                d="M12 1V3M12 21V23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M1 12H3M21 12H23M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
             </nav>
         </div>
     </header>
@@ -102,24 +119,24 @@
                 }
 
                 .skill-tag {
-                    background-color: #ffffff;
-                    color: #333;
+                    background-color: var(--skill-tag-bg);
+                    color: var(--text-color);
                     padding: 6px 14px;
                     border-radius: 20px;
                     font-size: 13px;
                     font-weight: 500;
                     cursor: default;
                     transition: all 0.3s ease;
-                    border: 1px solid #e2e8f0;
+                    border: 1px solid var(--skill-tag-border);
                     display: inline-block;
                     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
                 }
 
                 .skill-tag:hover {
-                    background-color: #f8f9fa;
+                    background-color: var(--skill-tag-hover-bg);
                     transform: translateY(-2px);
                     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-                    border-color: #3b82f6;
+                    border-color: var(--skill-tag-hover-border);
                 }
 
                 @media (max-width: 768px) {
@@ -370,7 +387,9 @@
                                             SKILL BRIDGE</h3>
                                         <p class="project-description"
                                             style="font-size: 13px; line-height: 1.5; color: #64748b; margin-bottom: 15px;">
-                                            SkillBridge is a project that connects skills with opportunities, providing tooling and workflows to match, evaluate, and manage skill-based collaborations. 
+                                            SkillBridge is a project that connects skills with opportunities, providing
+                                            tooling and workflows to match, evaluate, and manage skill-based
+                                            collaborations.
                                         </p>
                                         <div class="tech-stack"
                                             style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px;">
@@ -631,6 +650,7 @@
     </footer>
 
 
+    <script src="assets/js/nav-text-switcher.js"></script>
 </body>
 
 </html>
